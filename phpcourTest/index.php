@@ -9,6 +9,7 @@
 <body>
     
     <?php
+    echo "\n\n";
     //les chaines de caractere string
     $x = "hello, ca va ?\n";
     $y = "C'est moi Fabien\n";
@@ -60,7 +61,31 @@
     echo "\n\n";
     echo "avec foreach ca donne : \n";
     foreach ($day as $key => $value) {
-        echo "On a $value\n";
+        echo "à l'index $key du tableau on a $value\n";
+    }
+    echo "\n\n";
+    $nombre=[2,4,7,3,9,1,2,4,5,5,3,0,1,2,9,1,8,7,7,6,8];
+    foreach ($nombre as $key => $value) {
+        echo "[$key] == $value\n";
+    }
+    echo "Le plus grand c'est ".max($nombre)."\n";
+    echo "Le plus petit c'est ".min($nombre)."\n";
+    echo "\n\n";
+    $c=count($nombre);
+    $k=0;
+    $is=0;
+    while ($is<$c){
+        if ($nombre[$is]<=$nombre[$is+1]) {
+            $k = $nombre[$is];
+            $nombre[$is] = $k;
+            # code...
+        } else {
+            # code...
+            $k = $nombre[$is+1];
+            $nombre[$is] = $k;
+        }
+        echo $nombre[$is]." - ";
+        $is++;
     }
     ?>
 </body>
