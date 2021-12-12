@@ -57,7 +57,7 @@ $mobile=$row['numero'];
 
             <div class="info">
                 <h3 class="title">Email : </h3>
-                <h2>
+                <h2 class="email">
                     <?php echo $email ;?>
                 </h2>
             </div>

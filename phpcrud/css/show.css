@@ -99,3 +99,7 @@ h1::after{
     text-align: center;
     padding: 5px;
 }
+
+.email{
+    font-size: 1em;
+}
