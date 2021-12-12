@@ -32,25 +32,22 @@ a{
     font-size: 4vmin;
 }
 
-.update{
-    background: #267c0b;
-    width: 30%;
+.update , .delete , .show{
+    width: 20%;
     padding:5px;
     font-size: 3vmin;
+}
+
+.update{
+    background: #267c0b;
 }
 
 .delete{
     background: #eb3232;
-    width: 30%;
-    padding:5px;
-    font-size: 3vmin;
 }
 
 .show{
     background: #3269eb;
-    width: 30%;
-    padding:5px;
-    font-size: 3vmin;
 }
 
 .add:hover , .show{
@@ -72,6 +69,7 @@ a{
     max-width: 100%;
     overflow: auto;
     padding: 2px 0px;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 table{
@@ -89,6 +87,7 @@ table thead th{
 table tbody tr td{
     border-bottom: 1px solid lightgray;
     color:#444;
+    min-width:100px;
 }
 
 table tbody tr td,table tbody tr th{
