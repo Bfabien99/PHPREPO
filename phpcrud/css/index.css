@@ -1,0 +1,95 @@
+body{
+    min-height:100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    padding:20px;
+    margin: 0 auto;
+    width:90%;
+    min-height:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.add{
+    background: #3269eb;
+    width: 20%;
+    padding:10px;
+    font-size: 4vmin;
+}
+
+.update{
+    background: #267c0b;
+    width: 50%;
+    padding:5px;
+    font-size: 3vmin;
+}
+
+.delete{
+    background: #eb3232;
+    width: 50%;
+    padding:5px;
+    font-size: 3vmin;
+}
+
+.add:hover{
+    background: #1c4fbe;
+    transition: all 0.1s;
+}
+
+.update:hover{
+    background: #1e6608;
+}
+
+.delete:hover{
+    background: #cf1f1f;
+}
+
+.tablecontain{
+    width: 100%;
+    max-height: 80%;
+    overflow: auto;
+    padding: 2px 0px;
+}
+
+table{
+    font-size: 3vmin;
+    width: 100%;
+}
+
+table thead th{
+    text-align: center;
+    padding:10px;
+    height: 30px;
+    min-width:100px;
+    /* border-left: 1px solid black; */
+}
+
+table tbody tr td{
+    border-bottom: 1px solid lightgray;
+}
+
+table tbody tr td,table tbody tr th{
+    text-align: center;
+    min-width:100px;
+    padding:10px;
+    height: 30px;
+}
+
+.action{
+    min-width: 200px;
+}
