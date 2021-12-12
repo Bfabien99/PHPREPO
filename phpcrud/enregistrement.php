@@ -34,14 +34,15 @@ if(isset($_POST['submit'])){
         <form method="post" autocomplete="off">
             <a href="index.php" class="close" title="Accueil" alt="croix">&times;</a>
             <h1>Formulaire d'inscription</h1>
+            <span style="color:tomato;">(*) champs obligatoire</span>
             <div class="inputInfo">
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrez votre nom">
+                <input type="text" name="nom" id="nom" placeholder="(*) Entrez votre nom" required title="Champ obligatoire">
             </div>
 
             <div class="inputInfo">
                 <label for="prenom">Prenom</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Entrez votre prenom">
+                <input type="text" name="prenom" id="prenom" placeholder="(*) Entrez votre prenom" required title="Champ obligatoire">
             </div>
 
             <div class="inputInfo">
@@ -56,7 +57,7 @@ if(isset($_POST['submit'])){
 
             <div class="inputInfo">
                 <label for="numero">Mobile</label>
-                <input type="text" name="numero" id="numero" placeholder="Entrez votre numero">
+                <input type="text" name="numero" id="numero" placeholder="(*) Entrez votre numero" required title="Champ obligatoire">
             </div>
 
             <input type="submit" value="Enregistrer" id="submit" name="submit">

@@ -47,12 +47,12 @@ if(isset($_POST['submit'])){
             <h1>Modifier informations</h1>
             <div class="inputInfo">
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrez votre nom" value="<?php echo $nom; ?>">
+                <input type="text" name="nom" id="nom" placeholder="Entrez votre nom" value="<?php echo $nom; ?>" required title="Champ obligatoire">
             </div>
 
             <div class="inputInfo">
                 <label for="prenom">Prenom</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Entrez votre prenom" value="<?php echo $prenom; ?>">
+                <input type="text" name="prenom" id="prenom" placeholder="Entrez votre prenom" value="<?php echo $prenom; ?>" required title="Champ obligatoire">
             </div>
 
             <div class="inputInfo">
@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
 
             <div class="inputInfo">
                 <label for="numero">Mobile</label>
-                <input type="text" name="numero" id="numero" placeholder="Entrez votre numero" value="<?php echo $mobile; ?>">
+                <input type="text" name="numero" id="numero" placeholder="Entrez votre numero" value="<?php echo $mobile; ?>" required title="Champ obligatoire">
             </div>
 
             <input type="submit" value="Modifier" id="submit" name="submit">

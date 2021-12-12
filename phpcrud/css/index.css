@@ -34,29 +34,38 @@ a{
 
 .update{
     background: #267c0b;
-    width: 50%;
+    width: 30%;
     padding:5px;
     font-size: 3vmin;
 }
 
 .delete{
     background: #eb3232;
-    width: 50%;
+    width: 30%;
     padding:5px;
     font-size: 3vmin;
 }
 
-.add:hover{
+.show{
+    background: #3269eb;
+    width: 30%;
+    padding:5px;
+    font-size: 3vmin;
+}
+
+.add:hover , .show{
     background: #1c4fbe;
     transition: all 0.1s;
 }
 
 .update:hover{
     background: #1e6608;
+    transition: all 0.1s;
 }
 
 .delete:hover{
     background: #cf1f1f;
+    transition: all 0.1s;
 }
 
 .tablecontain{
@@ -81,6 +90,7 @@ table thead th{
 
 table tbody tr td{
     border-bottom: 1px solid lightgray;
+    color:#444;
 }
 
 table tbody tr td,table tbody tr th{

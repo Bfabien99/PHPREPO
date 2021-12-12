@@ -60,7 +60,10 @@ require 'connect.php';
                                         <td>'.$mobile.'</td>
                                         <td class="action">
                                             <a href="update.php?updateid='.$id.'" class="update">Modifier</a>
+
                                             <a href="delete.php?deleteid='.$id.'" class="delete">Supprimer</a>
+
+                                            <a href="show.php?showid='.$id.'" class="show">Voir</a>
                                         </td>
                                     </tr>
                                 ';
