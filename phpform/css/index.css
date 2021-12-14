@@ -1,0 +1,142 @@
+body{
+    width: 100%;
+    height:100vh;
+    font-size: 2.7vmin;
+    background: #3269eb;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1em;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.titles{
+    color: #fff;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.titles::after{
+    position: absolute;
+    top: 0;
+    content: "";
+    left: 40%;
+    text-align: center;
+    width: 20%;
+    background-color: orange;
+    height: 2px;
+}
+
+
+form{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1em;
+    width: 90%;
+    padding: 20px;
+    border-radius:10px;
+}
+
+.form-group{
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    padding: 3px 0px;
+}
+
+.form-group .inputInfo{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap:5px;
+}
+
+.inputInfo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+label , input , textarea{
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+input , textarea{
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius:2px;
+    color: rgb(32, 32, 32);
+}
+
+input:focus , textarea:focus{
+    border: 2px solid #3269eb;
+}
+
+input{
+    height:30px;
+    font-weight: normal;
+}
+
+textarea{
+    height:50px;
+}
+
+.error{
+    color: tomato;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    position:relative;
+    bottom: 15px;
+}
+
+.valide{
+    color: rgb(87, 177, 59);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    position:relative;
+    bottom: 10px;
+}
+
+.requis{
+    text-align: left;
+    width:100%;
+}
+
+.blue{
+    color: #3269eb;
+    font-weight:bold;
+    font-size: 2vmin;
+}
+
+#submit{
+    width: 100%;
+    border: none;
+    background: orange;
+    height:40px;
+    color: #fff;
+}
+
+#submit:hover{
+    background: rgb(236, 154, 0);
+    cursor: pointer;
+}
+
+.greeting {
+    color: #fff;
+    font-size:2.3vmin;
+    font-weight: bold;
+}
