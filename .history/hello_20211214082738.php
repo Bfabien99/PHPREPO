@@ -60,4 +60,3 @@
   ?>
 </body>
 </html>
----- Base de données : `inscription`---- ------------------------------------------------------------ Structure de la table `etudiant`--CREATE TABLE `etudiant` (  `id` int(11) NOT NULL,  `nom` varchar(100) NOT NULL,  `prenom` varchar(100) NOT NULL,  `naissance` date NOT NULL,  `email` varchar(100) NOT NULL,  `numero` varchar(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -133,18 +133,17 @@ function paire ($moy){
 
     <?php
         // 
-		// array(8) {
-		// 	[0]=>
-		// 	object(stdClass)#1 (4) {
-		// 	  ["name"]=>
-		// 	  string(15) "Nicolas Sarkozy"
-		// 	  ["age"]=>
-		// 	  int(55)
-		// 	  ["blocked"]=>
-		// 	  bool(false)
-		// 	  ["email"]=>
-		// 	  string(21) "nicolasdu92@gmail.com"
-		// 	}
+		array(8) {[0]=>
+			object(stdClass)#1 (4) {
+			  ["name"]=>
+			  string(15) "Nicolas Sarkozy"
+			  ["age"]=>
+			  int(55)
+			  ["blocked"]=>
+			  bool(false)
+			  ["email"]=>
+			  string(21) "nicolasdu92@gmail.com"
+			}
     ?>
 </table>
 </body>

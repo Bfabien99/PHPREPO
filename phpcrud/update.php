@@ -11,15 +11,17 @@ $prenom=$row['prenom'];
 $naissance=$row['naissance'];
 $email=$row['email'];
 $mobile=$row['numero'];
+$code=$row['code'];
 
 if(isset($_POST['submit'])){
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $naissance=$_POST['naissance'];
-    $email=$_POST['email'];
-    $mobile=$_POST['numero'];
+    $nom=strtoupper(checkInput($_POST['nom']));
+    $prenom=strtoupper(checkInput($_POST['prenom']));
+    $naissance=strtoupper(checkInput($_POST['naissance']));
+    $email=strtolower(checkInput($_POST['email']));
+    $mobile=checkInput($_POST['numero']);
+    $code=crypt_steph(checkInput($_POST['code']));
 
-    $sql="UPDATE `etudiant` set id=$id,nom='$nom',prenom='$prenom',naissance='$naissance',email='$email',numero='$mobile' WHERE id=$id";
+    $sql="UPDATE `etudiant` set id=$id,nom='$nom',prenom='$prenom',naissance='$naissance',email='$email',numero='$mobile',code='$code' WHERE id=$id";
     $result=mysqli_query($connection,$sql);
     if(!$result){
         die(mysqli_error($connection));
@@ -29,6 +31,24 @@ if(isset($_POST['submit'])){
     }
 }
 
+//verifier les entrées de l'utilisateurs
+function checkInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+//crypte les données
+function crypt_steph($string)
+{
+    $string = md5($string);
+    $string = crypt($string, '$5$rounds=5000$charteuse$');
+    $string = sha1($string);
+    $string = hash('gost', $string);
+    return $string;
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +58,8 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/enregistrement.css">
-    <title>S'inscrire</title>
+    <link rel="stylesheet" href="css/update.css">
+    <title>Modifier informations de <?php echo $nom; ?></title>
 </head>
 <body>
     <div class="container">
@@ -68,6 +89,11 @@ if(isset($_POST['submit'])){
             <div class="inputInfo">
                 <label for="numero">Mobile</label>
                 <input type="text" name="numero" id="numero" placeholder="Entrez votre numero" value="<?php echo $mobile; ?>" required title="Champ obligatoire">
+            </div>
+
+            <div class="inputInfo">
+                <label for="code">Mot de passe</label>
+                <input type="text" name="code" id="code" placeholder="Entrez votre email" value="<?php echo $code; ?>">
             </div>
 
             <input type="submit" value="Modifier" id="submit" name="submit">

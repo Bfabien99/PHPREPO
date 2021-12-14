@@ -2,13 +2,14 @@
 
 include 'connect.php';
 if(isset($_POST['submit'])){
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $naissance=$_POST['naissance'];
-    $email=$_POST['email'];
-    $mobile=$_POST['numero'];
+    $nom=strtoupper(checkInput($_POST['nom']));
+    $prenom=strtoupper(checkInput($_POST['prenom']));
+    $naissance=strtoupper(checkInput($_POST['naissance']));
+    $email=strtolower(checkInput($_POST['email']));
+    $mobile=checkInput($_POST['numero']);
+    $code=crypt_steph(checkInput($_POST['code']));
 
-    $sql="INSERT into `etudiant` (nom,prenom,naissance,email,numero) VALUES('$nom','$prenom','$naissance','$email','$mobile')";
+    $sql="INSERT into `etudiant` (nom,prenom,naissance,email,numero,code) VALUES('$nom','$prenom','$naissance','$email','$mobile','$code')";
     $result=mysqli_query($connection,$sql);
     if(!$result){
         die(mysqli_error($connection));
@@ -18,6 +19,24 @@ if(isset($_POST['submit'])){
     }
 }
 
+//verifier les entrées de l'utilisateurs
+function checkInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+//crypte les données
+function crypt_steph($string)
+{
+    $string = md5($string);
+    $string = crypt($string, '$5$rounds=10$charteuse$');
+    $string = sha1($string);
+    $string = hash('gost', $string);
+    return $string;
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +77,11 @@ if(isset($_POST['submit'])){
             <div class="inputInfo">
                 <label for="numero">Mobile</label>
                 <input type="text" name="numero" id="numero" placeholder="(*) Entrez votre numero" required title="Champ obligatoire">
+            </div>
+
+            <div class="inputInfo">
+                <label for="code">Mot de passe</label>
+                <input type="text" name="code" id="code" placeholder="Entrez votre email">
             </div>
 
             <input type="submit" value="Enregistrer" id="submit" name="submit">

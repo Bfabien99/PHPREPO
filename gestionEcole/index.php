@@ -31,7 +31,8 @@ $result = mysqli_query($connection,$sql);
                         <th>Prenom</th>
                         <th>Née le</th>
                         <th>Email</th>
-                        <th>Mobile</th>
+                        <th>Téléphone</th>
+                        <th>Classe</th>
                         <th>Action</th>
 
                     </tr>
@@ -45,12 +46,13 @@ $result = mysqli_query($connection,$sql);
                         $i=1;
                         if($result){
                             while($row = mysqli_fetch_assoc($result)){
-                                $id = $row['id'];
-                                $nom = $row['nom'];
-                                $prenom = $row['prenom'];
-                                $naissance = $row['naissance'];
-                                $email = $row['email'];
-                                $mobile = $row['numero'];
+                                $id = $row['idEtud'];
+                                $nom = $row['nomEtud'];
+                                $prenom = $row['prenomEtud'];
+                                $naissance = $row['naissanceEtud'];
+                                $email = $row['emailEtud'];
+                                $mobile = $row['numeroEtud'];
+                                $classe = $row['classeEtud'];
                                 ?>
                             
                                     <tr>
@@ -60,6 +62,7 @@ $result = mysqli_query($connection,$sql);
                                         <td> <?= $naissance?></td>
                                         <td><?= $email?></td>
                                         <td><?=$mobile?></td>
+                                        <td><?=$classe."ème"?></td>
                                         <td class="action">
                                             <a href="update.php?updateid='<?=$id?>'" class="update">Modifier</a>
 
