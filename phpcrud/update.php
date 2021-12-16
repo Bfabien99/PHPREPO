@@ -59,7 +59,11 @@ function crypt_steph($string)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/enregistrement.css">
     <link rel="stylesheet" href="css/update.css">
+<<<<<<< HEAD
     <title>Modifier informations de <?php echo $nom; ?></title>
+=======
+    <title>Mise à jour des informations</title>
+>>>>>>> bd709464df9b55db02bf4fd27ff2101a1d05499b
 </head>
 <body>
     <div class="container">
