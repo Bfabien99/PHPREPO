@@ -47,7 +47,9 @@ HTML;
 
 
 
-<form method="GET">
+<div class="row">
+
+    <form method="GET" class="col-md-8">
     <h2>Choisisser votre parfum</h2>
     <?php foreach($parfums as $parfum => $prix): ?>
         <div class="checkbox">
@@ -85,6 +87,17 @@ HTML;
     
     
 </form>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Votre Glace</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 <h2>$GET</h2>
 <pre>
