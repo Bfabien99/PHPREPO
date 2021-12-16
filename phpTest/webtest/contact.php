@@ -1,4 +1,5 @@
 <?php
+  $title="Contact";
     require 'header.php';
 ?>
 <div class="col-md-6">

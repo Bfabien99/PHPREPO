@@ -35,29 +35,29 @@
 
 
     //Filtre à injure
-    $insultes = ['merde', 'con','merdes', 'cons', 'imbecile','salaud','connard','putain','pute','roubignole','pute', 'imbeciles','salauds','connards','putains','putes','roubignoles','putes'];
+    // $insultes = ['merde', 'con','merdes', 'cons', 'imbecile','salaud','connard','putain','pute','roubignole','pute', 'imbeciles','salauds','connards','putains','putes','roubignoles','putes'];
 
-    while (true) {
-        $phrase = strtolower((string)readline("Entrez votre phrase \n"));
-        if ($phrase === "" )
-        {
-            exit("Fin du programme \n");
-        }
-        else
-        {
-            foreach ($insultes as $key => $insulte) {
-                // $taille = strlen($insulte)-1;
-                // $repeat = str_repeat('*', $taille);
-                // $firstletter = substr($insulte,0,1);
-                // $phrase = str_replace($insulte, $firstletter.$repeat, $phrase);
-                if (strpos($phrase, $insulte) !== false) {
-                    $phrase = "[message supprimé - contient un mot grossier]";
-                }
+    // while (true) {
+    //     $phrase = strtolower((string)readline("Entrez votre phrase \n"));
+    //     if ($phrase === "" )
+    //     {
+    //         exit("Fin du programme \n");
+    //     }
+    //     else
+    //     {
+    //         foreach ($insultes as $key => $insulte) {
+    //             // $taille = strlen($insulte)-1;
+    //             // $repeat = str_repeat('*', $taille);
+    //             // $firstletter = substr($insulte,0,1);
+    //             // $phrase = str_replace($insulte, $firstletter.$repeat, $phrase);
+    //             if (strpos($phrase, $insulte) !== false) {
+    //                 $phrase = "[message supprimé - contient un mot grossier]";
+    //             }
                 
-            }
-            echo $phrase."\n";
-        }
+    //         }
+    //         echo $phrase."\n";
+    //     }
 
-    }
+    // }
     
 ?>

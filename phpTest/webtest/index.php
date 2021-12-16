@@ -1,8 +1,7 @@
 <?php
-    require 'header.php'
-
+$title="Accueil";
+    require 'header.php';
 ?>
-
 
   <div class="bg-light p-5 rounded">
     <h1>Navbar example</h1>
