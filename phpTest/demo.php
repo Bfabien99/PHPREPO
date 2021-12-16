@@ -46,7 +46,7 @@ else if ($choix=="o")
     {
         echo "(".($key+1).")"." - $choisis -- ".$achats[$key]."$ \n";
     }
-    echo "Merci pour vos achats :"."$ \n";
+    echo "Merci pour vos achats :".array_sum($achats)."$ \n";
 }
 
 ?>
