@@ -19,7 +19,7 @@ HTML;
         }
         
         return <<<HTML
-        <input type="radio" name="{$name}[]" value="$value" $attributes>
+        <input type="radio" name="$name" value="$value" $attributes>
 HTML;
     }
     //checkbox
@@ -48,6 +48,7 @@ HTML;
 
 
 <form method="GET">
+    <h2>Choisisser votre parfum</h2>
     <?php foreach($parfums as $parfum => $prix): ?>
         <div class="checkbox">
             <label for="<?=$parfum?>">
@@ -80,6 +81,7 @@ HTML;
     <?php endforeach;?>
     <!---->
     <button type="submit" class="btn btn-primary">Composer ma glace</button>
+    <br>
     
     
 </form>
