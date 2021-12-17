@@ -8,3 +8,4 @@
 <?= nav_link("/menus.php",'Menu'); ?>
 <?= nav_link("/newsletter.php","S'abonner"); ?>
 <?= nav_link("/profile.php","Profile"); ?>
+<?= nav_link("/Adult.php","-18"); ?>
