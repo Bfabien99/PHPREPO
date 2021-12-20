@@ -1,8 +1,14 @@
 </main>
   
-<div class="container row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
+<div class="row">
+  <div class="col-md-4">
+  <?php
+  require_once dirname(__DIR__).DIRECTORY_SEPARATOR.'webtest'.DIRECTORY_SEPARATOR.'fonction'.DIRECTORY_SEPARATOR.'compteur.php';
+  ajouter_vue();
+  $vues = nombre_vues();
+  ?>
+  Il y a <?= $vues?> visite<?php if ($vues > 1):?>s<?php endif ?> sur le site.
+  </div>
   <div class="col-md-4">
     <h5>Navigation</h5>
     <ul class="list-unstyled">

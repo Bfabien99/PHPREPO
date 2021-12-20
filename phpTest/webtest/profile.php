@@ -18,7 +18,9 @@ $user =[
     'nom' => 'Doe',
     'age' => 18
 ];
-    require 'header.php'
+
+    $title="Profile";
+    require 'header.php';
 ?>
 
 
