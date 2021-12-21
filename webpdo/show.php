@@ -38,7 +38,7 @@ require 'header.php';
             <div class="card-body">
                 <form action="" method="post">
                 <h4>FROM : <?= htmlentities($posts->name); ?></h4>
-                <p class="small text-muted"><?= $posts->created_at; ?></p>
+                <p class="small text-muted"><?= strlen(htmlentities($posts->content)); ?> strings</p>
                 <h3> Title : <em><?= htmlentities($posts->title); ?></em> </h3>
                 <p>
                 <?= htmlentities($posts->content); ?>

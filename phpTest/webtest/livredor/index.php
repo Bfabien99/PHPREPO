@@ -2,6 +2,7 @@
 /*<?php?>*/
 require_once 'class/Message.php';
 require_once 'class/GuestBook.php';
+phpinfo();die();
 $errors = null;
 $success = false;
 $guestbook = new GuestBook(__DIR__.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'messages');

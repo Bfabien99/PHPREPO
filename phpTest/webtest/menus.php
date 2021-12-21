@@ -5,7 +5,7 @@ $lignes = file('menus.tsv');//Avec .tsv
 /*
 //Avec .csv
 foreach ($lignes as $key => $ligne) {
-  $lignes[$key]= str8getcsv(trim($ligne, " \t\n\r\0\x0B,"));
+  $lignes[$key]= str_getcsv(trim($ligne, " \t\n\r\0\x0B,"));
 }
 */
 foreach ($lignes as $key => $ligne) {
