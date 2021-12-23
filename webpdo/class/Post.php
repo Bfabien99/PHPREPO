@@ -1,4 +1,6 @@
 <?php
+namespace Apps;
+use \DateTime;
 
 class Post{
     public $id;
@@ -22,5 +24,13 @@ class Post{
     {
         return substr($this->content, 0, 100);
     }
+
+    public function getBody():string
+    {
+        $parseDown = new \Parsedown();
+        // $parseDown->setSafeMode(true)
+        return $parseDown->text($this->content);
+    }
+
 }
 ?>

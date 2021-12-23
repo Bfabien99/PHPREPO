@@ -2,7 +2,6 @@
 require 'AnimeFinder.php';
 $animelist = new AnimeFinder();
 $show=false;
-
 if (!empty($_POST['titre'])) {
     $Animes= $animelist->anime($_POST['titre']);
     if (!is_array($Animes )) {
@@ -41,7 +40,7 @@ if (!empty($_POST['titre'])) {
         <div class="row">
             <?php foreach ($Animes as $Anime):?>
                 <div class="card col-sm-4 mt-3">
-                    <a href="<?=$Anime['url']?>">
+                    <a href="episode.php?id=<?=$Anime['id']?>&titre=<?= $Anime['title'] ?>">
                     <div class="card-body " style="background:url(<?= $Anime['imageUrl'] ?>) no-repeat center/cover; width:150px;height:190px;">
                     </div>
                     <li><?= $Anime['title'] ?></li></a>

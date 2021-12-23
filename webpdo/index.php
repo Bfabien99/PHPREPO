@@ -1,4 +1,6 @@
 <?php
+use Apps\Post;
+require 'vendor/autoload.php';
 require_once 'class/Post.php';
 require('connectdb.php');
 $error_pdo = null;
@@ -17,7 +19,7 @@ try
     }
     $query = $pdo->query("SELECT * FROM posts");
     /** @var Post[] */
-    $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Post');
+    $posts = $query->fetchAll(PDO::FETCH_CLASS,Post::class);
 } 
 catch (PDOException $e) 
 {
@@ -54,7 +56,7 @@ require 'header.php';
                 <li class="list-group-item">
                 <h5><em>Send by :</em>  <?= nl2br(htmlentities($post->name)); ?></h5>
                 <strong><?= $post->title; ?></strong><br>
-                <em><a href="show.php?id=<?= nl2br(htmlentities($post->id)); ?>" title="<?= $post->content; ?>" ><?= nl2br(htmlentities($post->getExcerpt())); ?></em></a><br>
+                <em><a href="show.php?id=<?= nl2br(htmlentities($post->id)); ?>" title="<?= $post->content; ?>" ><?= $post->getBody(); ?></em></a><br>
                 <p class="small text-muted">Write :<?= $post->created_at->format('Y-m-d - H:i'); ?></p>
                 <a href="delete.php?id=<?= nl2br(htmlentities($post->id)); ?>" class="btn btn-danger">Delete</a>
                 </li>

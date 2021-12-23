@@ -7,7 +7,6 @@
         {
             $this->apiKey = $apiKey;
         }
-
         public function getForecast(string $city): array
         {
             $curl = curl_init("http://api.openweathermap.org/data/2.5/forecast?q={$city}&appid={$this->apiKey}&units=metric&lang=fr");

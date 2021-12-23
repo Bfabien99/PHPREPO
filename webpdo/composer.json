@@ -1,0 +1,14 @@
+{
+    "name": "gael/webpdo",
+    "autoload": {
+        "psr-4": {
+            "Apps\\": "class/"
+        }
+    },
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
+    }
+}

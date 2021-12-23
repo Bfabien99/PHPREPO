@@ -29,9 +29,9 @@
             
         }
 
-        public function lienExterne(string $id)
+        public function lienExterne(string $id): ?array
         {
-            $curl = curl_init(LINK."/anime/$id/episodes");
+            $curl = curl_init(LINK."anime/$id/episodes");
             curl_setopt_array($curl, [
                      CURLOPT_RETURNTRANSFER => true,
                      CURLOPT_TIMEOUT => 1
@@ -43,12 +43,12 @@
             } 
                 $results = [];
                 $liens =json_decode($liens, true);
-                foreach ($liens['results'] as $lien) {
+                foreach ($liens['episodes'] as $lien) {
                     $results[]=[
-                       "id" =>$lien['mal_id'],
-                       "url" =>$lien['url'],
-                       "imageUrl" =>$lien['image_url'],
-                       "title" =>$lien['title'],
+                        "id" =>$lien['episode_id'],
+                        "title" =>$lien['title'],
+                        "title_jap" =>$lien['title_japanese'],
+                        "video" =>$lien['video_url'],
                     ];
                 }
                 return $results;
