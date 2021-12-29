@@ -9,7 +9,7 @@ $router->map('GET','/', 'home');
 $router->map('GET','/nous-contacter', 'contact', 'contact');
 $router->map('GET','/blog/[*:slug]-[i:id]', 'blog/article', 'article');
 $match = $router->match();
-if($match !== null){
+if(is_array($match)){
     require '../element/header.php';
     if (is_callable($match['target'])) {
         call_user_func_array( $match["target"],  $match["params"]);
@@ -19,6 +19,8 @@ if($match !== null){
         require "../template/{$match['target']}.php";
     }
     require '../element/footer.php';
+}else{
+    echo "Error: 404";
 }
 //dump($match);
 // 
