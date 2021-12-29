@@ -1,4 +1,11 @@
+    
 <?php
+     /**
+     *Gère l'API de OpenWeather
+     *
+     * @author Brou Fabien <fabienbrou99@gmail.com>/Gravitkar
+     */
+    
     class OpenWeather{
         
         private $apiKey;
@@ -6,7 +13,13 @@
         public function __construct(string $apiKey)
         {
             $this->apiKey = $apiKey;
-        }
+        }        
+        /**
+         * Récupère les informations météorologique chaque 3h sur 5jours
+         *
+         * @param  string $city ville (ex: "Abidjan")
+         * @return array
+         */
         public function getForecast(string $city): array
         {
             $curl = curl_init("http://api.openweathermap.org/data/2.5/forecast?q={$city}&appid={$this->apiKey}&units=metric&lang=fr");
