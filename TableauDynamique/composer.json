@@ -1,0 +1,11 @@
+{
+    "name": "gael/brou",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/var-dumper": "^5.4"
+    }
+}
