@@ -21,21 +21,27 @@ if (!empty($_GET['q'])) {
     $params['city'] = "%".$_GET['q']."%";
 }
 
+
 //Organisation
 if (!empty($_GET['sort']) && in_array($_GET['sort'], $sortable)) {
     $direction = $_GET['dir'] ?? 'asc';
     if (!in_array($direction, ['asc', 'desc'])) {
         $direction = 'asc';
     }
-    $query .= " ORDER BY ".$_GET['sort']." $direction ";
+    $page = (int)($_GET['p'] ?? 1);
+    $offset = ($page-1) * PER_PAGE;
+    $query = " SELECT * FROM (SELECT * FROM products LIMIT ".PER_PAGE." OFFSET $offset) AS products ORDER BY ".$_GET['sort']." $direction ";
 }
 
+
 //Pagination
-$page = (int)($_GET['p'] ?? 1);
-$offset = ($page-1) * PER_PAGE;
+// $page = (int)($_GET['p'] ?? 1);
+// $offset = ($page-1) * PER_PAGE;
 
-$query .=  " LIMIT ".PER_PAGE." OFFSET $offset";
+// $query .=  " LIMIT ".PER_PAGE." OFFSET $offset";
 
+
+var_dump($query);
 $statement = $pdo->prepare($query);
 $statement->execute($params);
 $products = $statement->fetchAll();
@@ -48,6 +54,7 @@ $pages = ceil($count / PER_PAGE);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +62,7 @@ $pages = ceil($count / PER_PAGE);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Biens immobilier</title>
 </head>
@@ -88,13 +96,19 @@ $pages = ceil($count / PER_PAGE);
             <?php endforeach;?>
         </tbody>
     </table>
-
-    <?php if($pages > 1 && $page>1): ?>
-        <a href="?<?= URLHelper::withParam($_GET,"p", $page - 1) ;?>" class="btn btn-primary">Page précédente</a>
+    <div class="bottom">
+        <div class="pagination">
+            <?php if($pages): ?>
+        <a href="?<?= URLHelper::withParam($_GET,"p", $page - 1) ;?>" class="btn btn-primary <?= ($pages > 1 && $page>1) ? "":"disabled" ?>">Page précédente</a>
     <?php endif ?>
 
-    <?php if($pages > 1 && $page<$pages): ?>
-        <a href="?<?= URLHelper::withParam($_GET,"p", $page + 1) ;?>" class="btn btn-primary">Page suivante</a>
+    <?php if($pages): ?>
+        <a href="?<?= URLHelper::withParam($_GET,"p", $page + 1) ;?>" class="btn btn-primary <?= ($pages > 1 && $page<$pages) ? "":"disabled" ?>">Page suivante</a>
     <?php endif ?>
+        </div>
+        <?= isset($_GET['p']) ? "page ".$_GET['p']:"page 1"; ?>
+    </div>
+    
+    
 </body>
 </html>
