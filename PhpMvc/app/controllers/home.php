@@ -5,4 +5,10 @@
         {
             echo 'home/index';
         }
+
+        public function test()
+        {
+            echo 'test';
+        }
+        
     }
